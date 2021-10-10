@@ -19,7 +19,7 @@ public class ArrayList {
     }
 
     /**
-     * 有参构造器
+     * 有参构造器ð
      * @param capaticy
      */
     public ArrayList(int capaticy){
