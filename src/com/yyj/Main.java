@@ -6,6 +6,15 @@ public class Main {
         list.add(99);
         list.add(88);
         list.add(77);
+        list.add(77);
+        list.add(77);
+        list.add(77);
+        list.add(77);
+        list.add(77);
+        list.add(77);
+        list.add(77);
+        list.add(77);
+        list.add(77);
         // ð
         list.add(1,55);
         System.out.println(list.toString());

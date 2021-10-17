@@ -1,13 +1,15 @@
 package com.yyj;
 
+import org.omg.CORBA.Object;
+
 import java.util.Arrays;
 
 /**
  * 动态数组
  */
-public class ArrayList {
+public class ArrayList<E> {
     // 保存的元素
-    public int[] elements;
+    public E[] elements;
     // 元素的数量
     public int size;
 
@@ -15,7 +17,7 @@ public class ArrayList {
     public static final int ELEMENT_NOT_FOUND = -1;
 
     public ArrayList(){
-        this.elements = new int[DEAFUAL_SIZE];
+        this.elements = (E[]) new Object[DEAFUAL_SIZE];
     }
 
     /**
@@ -23,7 +25,7 @@ public class ArrayList {
      * @param capaticy
      */
     public ArrayList(int capaticy){
-        this.elements = new int[capaticy];
+        this.elements = (E[]) new Object[capaticy];
     }
 
     public int size(){
@@ -39,7 +41,7 @@ public class ArrayList {
     }
 
 
-    public void add(int element) {
+    public void add(E element) {
 
         ensureCapacity(size+1);
 
@@ -55,27 +57,28 @@ public class ArrayList {
         int oldCapacity = elements.length;
         if (capacity<oldCapacity)return;
 
-        int newCapacity = oldCapacity+oldCapacity>>1;
-        int[] newElements = new int[newCapacity];
+        int newCapacity = (int) (oldCapacity*1.5);
+        E[] newElements = (E[]) new Object[newCapacity];
         for (int i = 0; i < size; i++) {
             newElements[i] = elements[i];
         }
         this.elements = newElements;
+        System.out.println(oldCapacity+"_扩容为_"+newCapacity);
     }
 
-    public int get(int index){
+    public E get(int index){
         if (size==0||index>=size){
             throw new IndexOutOfBoundsException("size: "+size+" index: "+index);
         }
         return elements[index];
     }
 
-    public int set(int index,int element) {
+    public E set(int index,E element) {
         // 注意  思想  size即为我们自己控制的
         if (size==0||index>=size){
             throw new IndexOutOfBoundsException("size: "+size+" index: "+index);
         }
-        int old = elements[index];
+        E old = elements[index];
         elements[index] = element;
         return old;
     }
