@@ -36,7 +36,7 @@ public class ArrayList<E> {
         return size==0;
     }
 
-    public boolean contanis(int element) {
+    public boolean contanis(E element) {
         return indexOf(element)!=ELEMENT_NOT_FOUND;
     }
 
@@ -91,7 +91,7 @@ public class ArrayList<E> {
      * @param index
      * @param element
      */
-    public void add(int index,int element){
+    public void add(int index,E element){
         for (int i = size-1; i >= index; i--) {
             elements[i+1] = elements[i];
         }
@@ -100,11 +100,11 @@ public class ArrayList<E> {
     }
 
     // 删除索引位置的元素  后边的元素往前挪
-    public int remove(int index){
+    public E remove(int index){
         if (size==0||index>=size){
             throw new IndexOutOfBoundsException("size: "+size+" index: "+index);
         }
-        int element = elements[index];
+        E element = elements[index];
         for (int i = index; i <= size; i++) {
             elements[i] = elements[i+1];
         }
@@ -112,7 +112,7 @@ public class ArrayList<E> {
         return element;
     }
 
-    public int indexOf(int element){
+    public int indexOf(E element){
         for (int i = 0; i < elements.length; i++) {
             if (elements[i]==element){
                 return i;
@@ -122,8 +122,11 @@ public class ArrayList<E> {
     }
 
     public void clear(){
-        // 注意 思想。  不用每次都把元素删除。  后边进行覆盖即可。
-         this.size = 0;
+        // 注意 思想。  不用每次都把元素删除。  后边进行覆盖即可。 这是对于int来说
+        //this.size = 0;
+        for (int i = 0; i < elements.length; i++) {
+            elements[i] = null;
+        }
     };
 
     @Override
