@@ -1,8 +1,6 @@
-package com.yyj;
+package com.yyj.动态数组_01;
 
 import org.omg.CORBA.Object;
-
-import java.util.Arrays;
 
 /**
  * 动态数组
