@@ -1,4 +1,4 @@
-package com.yyj.链表_02;
+package com.baize.链表_02;
 
 
 public class LinkedList<E> {
@@ -30,6 +30,10 @@ public class LinkedList<E> {
             pre.next = node;
         }
         size++;
+    }
+    public void remove(int index){
+        Node<E> prev = node(index - 1);
+        prev.next = prev.next.next;
     }
     // 直接调用即可
     public E get(int index){

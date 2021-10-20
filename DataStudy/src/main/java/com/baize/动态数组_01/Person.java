@@ -1,4 +1,4 @@
-package com.yyj.动态数组_01;
+package com.baize.动态数组_01;
 
 
 public class Person {
